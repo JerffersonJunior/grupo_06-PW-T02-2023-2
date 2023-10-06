@@ -26,3 +26,8 @@ Tema: Jogo This or That.
 Link do Figma
 
 Link: https://www.figma.com/file/tEAMt7oK3Y1oUAhSJwsG4K/ThisOrThat?type=design&node-id=0%3A1&mode=design&t=JMwG51hAqEIhVoPl-1
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Implementação Front-end
+
+Linguagem de programação: HTML, CSS

@@ -31,3 +31,5 @@ Link: https://www.figma.com/file/tEAMt7oK3Y1oUAhSJwsG4K/ThisOrThat?type=design&n
 Implementação Front-end
 
 Linguagem de programação: HTML, CSS
+
+Banco de dados: Postgres

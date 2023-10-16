@@ -1,0 +1,221 @@
+/* styles.css */
+
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5FC5FF; 
+}
+
+
+
+
+.imagem {
+  width: 95px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  border: 2px solid blue; /
+}
+
+
+.icone1 {
+
+  color: #000;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 173px;
+  height: 30px;
+  flex-shrink: 0;
+  background-color: rgb(242, 235, 235); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+
+.centro1 {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+
+
+
+
+#canetinha img 
+{
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  margin-left: 20px;
+
+}
+
+.icone2 {
+  text-align: center;
+}
+
+.icone2 img {
+  width: 199px;
+  height: 199px;
+  flex-shrink: 0;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+
+.icone3
+{
+  color: #000;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 469px;
+  height: 59px;
+  flex-shrink: 0;
+  flex-shrink: 0;
+  background-color: rgb(237, 235, 242); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+#canetinha2 img 
+{
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+
+
+
+}
+
+.icone4
+{
+  color: #000;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 488px;
+  height: 33px;
+  flex-shrink: 0;
+
+  background-color: rgb(237, 235, 242); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+#canetinha3 img 
+{
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+
+
+
+}
+
+
+.icone5
+{
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 140px;
+  height: 18px;
+  flex-shrink: 0;
+
+  background-color: rgb(237, 235, 242); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  margin-right: 420px;
+  margin-top: 20px;
+}
+#canetinha4 img 
+{
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  margin-left: -350px;
+
+
+
+}
+
+
+
+
+.icone6
+{
+  color: #000;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 167px;
+  height: 21px;
+  flex-shrink: 0;
+
+  background-color: rgb(237, 235, 242); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  margin-right: 260px;
+  margin-top: 20px;
+}
+
+
+.icone7
+{
+  color: #000;
+  text-align: -200px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 167px;
+  height: 21px;
+  flex-shrink: 0;
+
+  background-color: rgb(237, 235, 242); 
+  display: flex;
+
+
+  border-radius: 50px;
+  margin-left: -200px;
+  margin-top: 20px;
+
+}
+
+
+

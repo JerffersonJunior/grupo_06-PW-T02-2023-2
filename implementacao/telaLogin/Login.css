@@ -72,7 +72,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 100%;
     background-color: #2ED12B;
     text-align: center;
     font-size: 30px;
@@ -98,12 +97,11 @@ body{
 }
 
 .botao_criarContar{
-    width: 10vw;
-    height: 11vh;
+    width: 15vw;
+    height: 9vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 100%;
     background-color: #2ED12B;
     text-align: center;
     font-size: 30px;

@@ -79,6 +79,10 @@ body{
     color: white;
 }
 
+.botao_login:hover{
+    background-color: #2a9628;
+}
+
 .subtexto{
     color: #2764FF;
     font-family: Arial, Helvetica, sans-serif;
@@ -94,8 +98,8 @@ body{
 }
 
 .botao_criarContar{
-    width: 8.5vw;
-    height: 9.5vh;
+    width: 10vw;
+    height: 11vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,4 +108,8 @@ body{
     text-align: center;
     font-size: 30px;
     color: white;
+}
+
+.botao_criarContar:hover{
+    background-color: #2a9628;
 }

@@ -83,3 +83,7 @@ body{
     font-size: 30px;
     color: white;
 }
+
+.botao_login:hover{
+    background-color: #2a9628;
+}

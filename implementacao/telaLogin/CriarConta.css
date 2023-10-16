@@ -96,6 +96,10 @@ body{
     color: white;
 }
 
+.botao_criarContar:hover{
+    background-color: #2a9628;
+}
+
 .container_termos{
     display: flex;
     justify-content: center;

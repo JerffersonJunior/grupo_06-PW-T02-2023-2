@@ -38,13 +38,13 @@ body{
     width: 28vw;
     background-color: #5FC5FF;
     border-radius: 10px;
-    padding: 10px;
-    margin: 8px
+    padding: 1%;
+    margin: 0.1%;
 }
 
 .credencial p{
     text-align: left;
-    font-size: 20px;
+    font-size: 0.9vw;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -60,14 +60,14 @@ body{
 .subtitulo{
     color: #000000;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 27px;
+    font-size: 1.2vw;
 }
 
 .subtexto_padrao{
     display: inline;
     color: #000000;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 19px;
+    font-size: 0.9vw;
 }
 
 .azul{
@@ -91,7 +91,7 @@ body{
     align-items: center;
     background-color: #2ED12B;
     text-align: center;
-    font-size: 30px;
+    font-size: 1.5vw;
     color: white;
 }
 
@@ -104,7 +104,7 @@ body{
     justify-content: center;
     align-items: left;
     text-align: left;
-    padding-top: 10px;
+    padding-top: 1%;
 } 
 
 .termos_uso{
@@ -118,5 +118,5 @@ body{
     width: 2vw;
     height: 2vh;
     cursor: pointer;
-    margin-right: 5px;
+    margin-right: 1%;
 }

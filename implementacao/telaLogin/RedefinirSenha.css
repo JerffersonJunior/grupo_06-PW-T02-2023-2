@@ -38,19 +38,19 @@ body{
     width: 28vw;
     background-color: #5FC5FF;
     border-radius: 10px;
-    padding: 10px;
+    padding: 1%;
 }
 
 .credencial p{
     text-align: left;
-    font-size: 20px;
+    font-size: 0.9vw;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .subtitulo{
     color: #000000;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 27px;
+    font-size: 1.2vw;
 }
 
 .campo_arredondado{
@@ -79,7 +79,7 @@ body{
     align-items: center;
     background-color: #2ED12B;
     text-align: center;
-    font-size: 30px;
+    font-size: 1.5vw;
     color: white;
 }
 

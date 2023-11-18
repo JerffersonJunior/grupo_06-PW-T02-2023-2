@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState } from 'react'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/firebaseConfig'
@@ -28,6 +28,10 @@ function Register(){
         return <p>carregando...</p>
     }
 
+    if(user){
+        return <Navigate to='/'/>
+    }
+
     return(
         <div>
             <Logo />
@@ -43,7 +47,7 @@ function Register(){
                         type="text"
                         name="email"
                         id="email"
-                        placeholder="johndoe@gmail.com"
+                        placeholder="rabanete123@gmail.com"
                         onChange={e => setEmail(e.target.value)}
                     />
                     </div>

@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { useState } from 'react'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/firebaseConfig'
+import { Navigate } from "react-router-dom";
 
 import styles from './Login.module.css'
 
@@ -9,15 +9,19 @@ import Logo from '../../components/Logo'
 import Titulo from '../../components/Titulo'
 
 function Login(){
+    const [goToRegister, setGoToRegister] = useState(false)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
+
+    if(goToRegister){
+        return <Navigate to='/register'/>
+    }
 
     function handleSignIn(e){
         e.preventDefault()
@@ -40,7 +44,7 @@ function Login(){
                         type="text"
                         name="email"
                         id="email"
-                        placeholder="johndoe@gmail.com"
+                        placeholder="rabanete123@gmail.com"
                         onChange={e => setEmail(e.target.value)}
                     />
                     </div>
@@ -60,9 +64,9 @@ function Login(){
                     Login
                     </button>
 
-                    <a href="/register">Esqueceu sua senha ?</a>
+                    <a href="/forgotpassword">Esqueceu sua senha ?</a>
 
-                    <div href="/register" className={styles.button_register}>
+                    <div className={styles.button_register} onClick={()=>{setGoToRegister(true)}}>
                     Criar nova conta
                     </div>
                 </form>

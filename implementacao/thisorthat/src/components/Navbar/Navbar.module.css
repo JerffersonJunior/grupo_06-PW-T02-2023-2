@@ -37,6 +37,7 @@ nav{
     font-weight: 200;
     color: white;
     transition: 0.3s ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar li a:hover{

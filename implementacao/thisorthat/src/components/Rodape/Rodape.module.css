@@ -1,0 +1,16 @@
+.footer{
+    position: static;
+    bottom: 0;
+    width: 100%;
+    margin-top: 15%;
+    padding: 3em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3870ff;
+}
+
+.lista{
+    list-style: none;
+}

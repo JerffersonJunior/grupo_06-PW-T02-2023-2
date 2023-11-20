@@ -6,6 +6,7 @@ import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile'
 import PrivateRoute from "./components/PrivateRouter";
+import Footer from "./components/Rodape"
 
 function RoutesApp() {
   return (
@@ -17,6 +18,7 @@ function RoutesApp() {
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -51,7 +51,6 @@ function Profile (){
                     <button className={styles.button} disabled={loading || !photo} onClick={handleClick}>Upload</button>
                     <button className={styles.button_logout} onClick={handleLogOut}>LogOut</button>
                 </div>
-
             </div>
         </div>
     )

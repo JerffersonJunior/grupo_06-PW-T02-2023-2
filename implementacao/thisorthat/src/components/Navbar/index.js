@@ -1,13 +1,33 @@
 import styles from './Navbar.module.css'
+import Logo from '../../images/logo.png'
+import { Component } from 'react';
 
-function Navbar(){
-    return(
-        <div className={styles.container}>
-            <div className={styles.menu}>
-                Hello World
+class Navbar extends Component{
+    state={clicked: false};
+    handleClick = ()=>{
+        this.setState({clicked: !this.state.clicked})
+    }
+
+    render(){
+        return(
+            <div className={styles.container}>
+                <nav>
+                <img className={styles.foto} src={Logo} alt='Logo'/>
+                    <div>
+                        <ul className={`${styles.navbar} ${this.state.clicked ? styles.active : styles.navbar}`}>
+                            <li><a href='/'>Categoria</a></li>
+                            <li><a href='/'>Desafios</a></li>
+                            <li><a href='/'>Ranking</a></li>
+                            <li><a href='/profile'>Conta</a></li>
+                        </ul>
+                    </div>
+                    <div className={styles.mobile} onClick={this.handleClick}>
+                        <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
+                    </div>
+                </nav>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default Navbar

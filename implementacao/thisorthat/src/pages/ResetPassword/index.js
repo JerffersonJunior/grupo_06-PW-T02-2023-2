@@ -19,6 +19,7 @@ function ResetPassword(){
 
     const query = useQuery()
     const [newPassword, setNewPassword] = useState("")
+    const [newPasswordConfirm, setNewPasswordConfirm] = useState("")
 
     return(
         <div>
@@ -30,9 +31,14 @@ function ResetPassword(){
             <div className={styles.container}>
                 <form onSubmit={async e=>{
                     e.preventDefault()
-                    confirmPassword(query.get('oobCode'), newPassword).then(()=>{
-                        alert("Alterado com sucesso")
-                    })
+                    if(newPassword !== newPasswordConfirm){
+                        return alert("Senhas não correspondem")
+                    }
+                    try{
+                        confirmPassword(query.get('oobCode'), newPassword).then(()=>{
+                            alert("Alterado com sucesso")
+                        })
+                    } catch{}
                 }}>
                     <div className={styles.inputContainer}>
                     <label htmlFor="senha">Nova senha</label>
@@ -43,6 +49,18 @@ function ResetPassword(){
                         placeholder="************"
                         value={newPassword}
                         onChange={e=> setNewPassword(e.target.value)}
+                    />
+                    </div>
+
+                    <div className={styles.inputContainer}>
+                    <label htmlFor="senha">Confirme a nova senha</label>
+                    <input
+                        type="password"
+                        name="senhaConfirm"
+                        id="senhaConfirm"
+                        placeholder="************"
+                        value={newPasswordConfirm}
+                        onChange={e=> setNewPasswordConfirm(e.target.value)}
                     />
                     </div>
 

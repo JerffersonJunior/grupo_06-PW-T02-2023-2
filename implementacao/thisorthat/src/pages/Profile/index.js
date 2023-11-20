@@ -45,8 +45,10 @@ function Profile (){
         <div>
             <Navbar />
             <div className={styles.container}>
+                <string><h3>Usuário</h3></string>{currentUser.email}
                 <img  src={photoURL} alt="Avatar" className={styles.avatar} />
                 <div className={styles.inputContainer}>
+                    <p>Trocar foto de perfil</p>
                     <input className={styles.input_form} type="file" onChange={handleChange}/>
                     <button className={styles.button} disabled={loading || !photo} onClick={handleClick}>Upload</button>
                     <button className={styles.button_logout} onClick={handleLogOut}>LogOut</button>

@@ -21,6 +21,8 @@
     border-width: 5px;
     border-color: rgb(18, 48, 105);
     border-style: outset;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .input_form {

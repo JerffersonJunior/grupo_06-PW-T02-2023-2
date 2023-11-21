@@ -15,7 +15,7 @@ class Navbar extends Component{
                 <img className={styles.foto} src={Logo} alt='Logo'/>
                     <div>
                         <ul className={`${styles.navbar} ${this.state.clicked ? styles.active : styles.navbar}`}>
-                            <li><a href='/'>Categoria</a></li>
+                            <li><a href='/categories'>Categoria</a></li>
                             <li><a href='/'>Desafios</a></li>
                             <li><a href='/'>Ranking</a></li>
                             <li><a href='/profile'>Conta</a></li>

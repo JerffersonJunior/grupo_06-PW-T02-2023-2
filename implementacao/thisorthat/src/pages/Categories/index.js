@@ -23,6 +23,9 @@ const Categories = ()=>{
             <div className={styles.container}>
                 <div className={styles.container_opcao}>
                     <button className={styles.button} onClick={(e)=>setCategoriaSelecionada("Gatos")}>Gatos</button>
+                    <button className={styles.button} onClick={(e)=>setCategoriaSelecionada("Cachorros")}>Cachorros</button>
+                    <button className={styles.button} onClick={(e)=>setCategoriaSelecionada("Patos")}>Patos</button>
+                    <button className={styles.button} onClick={(e)=>setCategoriaSelecionada("Raposas")}>Raposas</button>
                 </div>
                 <button className={styles.button_confirm} onClick={confirmar} >Começar</button>
                 <strong className={styles.estilo}>Categoria selecionado: {categoriaSelecionada}</strong>

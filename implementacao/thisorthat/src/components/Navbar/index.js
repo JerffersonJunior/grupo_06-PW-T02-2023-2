@@ -16,7 +16,7 @@ class Navbar extends Component{
                     <div>
                         <ul className={`${styles.navbar} ${this.state.clicked ? styles.active : styles.navbar}`}>
                             <li><a href='/categories'>Categoria</a></li>
-                            <li><a href='/'>Desafios</a></li>
+                            <li><a href='/challenge'>Desafios</a></li>
                             <li><a href='/'>Ranking</a></li>
                             <li><a href='/profile'>Conta</a></li>
                         </ul>

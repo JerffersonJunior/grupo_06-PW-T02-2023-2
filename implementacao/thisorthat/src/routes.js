@@ -23,6 +23,7 @@ function RoutesApp() {
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         <Route path="/categories" element={<PrivateRoute><Categories/></PrivateRoute>} />
         <Route path="/jogo" element={<PrivateRoute><Jogo/></PrivateRoute>} />
+        <Route path="/challenge" element={<PrivateRoute><Jogo/></PrivateRoute>} />
       </Routes>
       <Footer />
     </BrowserRouter>

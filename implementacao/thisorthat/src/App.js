@@ -1,10 +1,13 @@
 import RoutesApp from "./routes";
 import { AuthProvider } from "./contexts/AuthContext";
+import { CategoryProvider } from "./contexts/CategoryContext";
 
 function App() {
   return (
       <AuthProvider>
-        <RoutesApp />
+        <CategoryProvider>
+          <RoutesApp />
+        </CategoryProvider>
       </AuthProvider>
   );
 }

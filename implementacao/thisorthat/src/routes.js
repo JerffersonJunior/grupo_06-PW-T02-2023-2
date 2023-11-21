@@ -6,13 +6,13 @@ import Register from "./pages/Register";
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile'
+import Jogo from './pages/Jogo'
+
 import PrivateRoute from "./components/PrivateRouter";
 import Footer from "./components/Rodape"
-import { useState } from "react";
 
 
 function RoutesApp() {
-  const [categoria, setCategoria] = useState("")
   return (
     <BrowserRouter>
       <Routes>
@@ -21,7 +21,8 @@ function RoutesApp() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
-        <Route path="/categories" element={<PrivateRoute><Categories categoria={categoria} setCategoria={setCategoria} /></PrivateRoute>} />
+        <Route path="/categories" element={<PrivateRoute><Categories/></PrivateRoute>} />
+        <Route path="/jogo" element={<PrivateRoute><Jogo/></PrivateRoute>} />
       </Routes>
       <Footer />
     </BrowserRouter>

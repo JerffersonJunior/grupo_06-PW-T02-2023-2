@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import { Gatos, Cachorros, Patos, Raposas } from '../../services/api'
+import { Gatos, Cachorros, Patos, Raposas, Quokkas, Cafe } from '../../services/api'
 import { useCategory } from '../../contexts/CategoryContext';
 
 import Navbar from "../../components/Navbar"
 import styles from "./Jogo.module.css"
 
 function Jogo(){
+  const [seconds, setSeconds] = useState(30);
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }, []);
+
+
+
   const { categoriaSelecionada } = useCategory()
     const [imageLinks, setImageLinks] = useState([]);
     
@@ -48,7 +59,24 @@ function Jogo(){
       
               setImageLinks([data1.image, data2.image]);
           }
+          else if(categoriaSelecionada === "Quokkas"){
+            const response1 = await Quokkas.get('/');
+            const response2 = await Quokkas.get('/');
 
+            const data1 = response1.data;
+            const data2 = response2.data;
+    
+            setImageLinks([data1.image, data2.image]);
+        }
+        else if(categoriaSelecionada === "Cafe"){
+          const response1 = await Cafe.get('/');
+          const response2 = await Cafe.get('/');
+
+          const data1 = response1.data;
+          const data2 = response2.data;
+  
+          setImageLinks([data1.file, data2.file]);
+      }
 
           } catch (error) {
             console.error('Erro ao buscar imagens:', error);
@@ -60,12 +88,32 @@ function Jogo(){
 
     return(
         <div>  
-            <Navbar />
+            <Navbar />      
+            <div className={styles.container}>
             {imageLinks.map((link, index) => (
-          <img key={index} src={link} alt={`Animal ${index + 1}`} className={styles.card} />
-        ))}
+            <button className={styles.button}><img key={index} src={link} alt={`Animal ${index + 1}`} className={styles.card} /></button>
+            ))}
+
         </div>
+            <div className={styles.timer}>
+              
+                <h1>{seconds}s</h1>
+                {seconds === 0 && <p>Tempo esgotado!</p>}
+          
+            </div>
+           <button className={styles.nextbutton} onClick={() => window.location.reload(false)}>Próximo</button>
+        </div>
+        
     )
+              
+               
+
+
+
+
+
+
+
 }
 
 export default Jogo

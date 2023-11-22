@@ -9,6 +9,7 @@ import Profile from './pages/Profile'
 import Jogo from './pages/Jogo'
 import Forum from './pages/Forum'
 import Publicar from './pages/Publicar'
+import NotFound from './pages/NotFound'
 
 import PrivateRoute from "./components/PrivateRouter";
 import Footer from "./components/Rodape"
@@ -28,6 +29,8 @@ function RoutesApp() {
         <Route path="/challenge" element={<PrivateRoute><Jogo/></PrivateRoute>} />
         <Route path="/forum" element={<PrivateRoute><Forum/></PrivateRoute>} />
         <Route path="/publicar" element={<PrivateRoute><Publicar/></PrivateRoute>} />
+        
+        <Route path="*" element={<PrivateRoute><NotFound/></PrivateRoute>} />
 
       </Routes>
       <Footer />

@@ -15,5 +15,12 @@ const Raposas = axios.create({
     baseURL: "https://randomfox.ca/floof/"
 })
 
-export {Gatos, Cachorros, Patos, Raposas}
+const Quokkas = axios.create({
+    baseURL: "https://quokka.pics/api/"
+})
+const Cafe = axios.create({
+    baseURL: "https://coffee.alexflipnote.dev/random.json"
+})
+
+export {Gatos, Cachorros, Patos, Raposas, Quokkas, Cafe}
 

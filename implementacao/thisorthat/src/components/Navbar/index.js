@@ -18,6 +18,7 @@ class Navbar extends Component{
                             <li><a href='/categories'>Categoria</a></li>
                             <li><a href='/challenge'>Desafios</a></li>
                             <li><a href='/'>Ranking</a></li>
+                            <li><a href='/forum'>Fórum</a></li>
                             <li><a href='/profile'>Conta</a></li>
                         </ul>
                     </div>

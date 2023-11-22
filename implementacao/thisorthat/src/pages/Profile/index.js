@@ -2,10 +2,10 @@ import { useAuth } from "../../contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
 import Avatar from "../../images/avatar.png"
 import { upload } from "../../services/firebaseConfig"
+import { useEffect, useState } from "react"
 
 import Navbar from "../../components/Navbar"
 import styles from "./Profile.module.css"
-import { useEffect, useState } from "react"
 
 function Profile (){
     const [photoURL, setPhotoURL] = useState(Avatar)

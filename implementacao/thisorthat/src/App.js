@@ -3,7 +3,9 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { CategoryProvider } from "./contexts/CategoryContext";
 
 function App() {
+
   return (
+    
       <AuthProvider>
         <CategoryProvider>
           <RoutesApp />

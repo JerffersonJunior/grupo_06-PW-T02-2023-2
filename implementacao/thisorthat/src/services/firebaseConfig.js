@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, updateProfile } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"
+import { getFirestore } from "@firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmGs0H_QPZRgfpfea56fsJt_SJfJKLv2w",
@@ -16,6 +17,8 @@ const app = initializeApp(firebaseConfig);
 const storage = getStorage()
 
 export const auth = getAuth(app)
+
+export const db = getFirestore(app)
 
 export async function upload(file, currentUser, setLoading){
   const fileRef = ref(storage, currentUser.uid + '.png')

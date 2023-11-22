@@ -8,6 +8,7 @@ import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile'
 import Jogo from './pages/Jogo'
 import Forum from './pages/Forum'
+import NotFound from './pages/NotFound'
 
 import PrivateRoute from "./components/PrivateRouter";
 import Footer from "./components/Rodape"
@@ -26,6 +27,9 @@ function RoutesApp() {
         <Route path="/jogo" element={<PrivateRoute><Jogo/></PrivateRoute>} />
         <Route path="/challenge" element={<PrivateRoute><Jogo/></PrivateRoute>} />
         <Route path="/forum" element={<PrivateRoute><Forum/></PrivateRoute>} />
+        
+
+        <Route path="*" element={<PrivateRoute><NotFound/></PrivateRoute>} />
 
       </Routes>
       <Footer />

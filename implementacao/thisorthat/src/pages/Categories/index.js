@@ -4,7 +4,7 @@ import { useCategory } from "../../contexts/CategoryContext"
 
 import { useNavigate } from "react-router-dom"
 
-const Categories = ()=>{
+function Categories(){
     const { categoriaSelecionada, setCategoriaSelecionada } = useCategory()
     const history = useNavigate()
 
@@ -13,7 +13,7 @@ const Categories = ()=>{
             return alert("Escolha uma categoria")
         }
         else{
-            history('/jogo')
+            history('/game')
         }
     }
 

@@ -5,7 +5,7 @@ import { useCategory } from "../../contexts/CategoryContext"
 import { useNavigate } from "react-router-dom"
 
 
-const Challenge = ()=>{
+function Challenge(){
     const { categoriaSelecionada, setCategoriaSelecionada } = useCategory()
     const history = useNavigate()
 

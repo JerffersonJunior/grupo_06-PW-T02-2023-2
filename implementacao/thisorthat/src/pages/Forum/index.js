@@ -23,7 +23,7 @@ function Forum(){
         }
 
         getUsers()
-    }, [forumCollectionRef])
+    })
 
     return(
         <div>

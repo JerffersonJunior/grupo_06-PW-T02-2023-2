@@ -3,9 +3,9 @@ import { Gatos, Cachorros, Patos, Raposas, Quokkas, Cafe } from '../../services/
 import { useCategory } from '../../contexts/CategoryContext';
 
 import Navbar from "../../components/Navbar"
-import styles from "./Jogo.module.css"
+import styles from "./Game.module.css"
 
-function Jogo(){
+function Game(){
   const [seconds, setSeconds] = useState(30);
     useEffect(() => {
       const timer = setInterval(() => {
@@ -14,10 +14,7 @@ function Jogo(){
 
       return () => clearInterval(timer);
     }, []);
-
-
-
-  const { categoriaSelecionada } = useCategory()
+    const { categoriaSelecionada } = useCategory()
     const [imageLinks, setImageLinks] = useState([]);
     
     useEffect(() => {
@@ -49,7 +46,7 @@ function Jogo(){
               const data2 = response2.data;
       
               setImageLinks([data1.message, data2.message]);
-           }
+            }
             else if(categoriaSelecionada === "Raposas"){
               const response1 = await Raposas.get('/');
               const response2 = await Raposas.get('/');
@@ -58,33 +55,32 @@ function Jogo(){
               const data2 = response2.data;
       
               setImageLinks([data1.image, data2.image]);
-          }
-          else if(categoriaSelecionada === "Quokkas"){
-            const response1 = await Quokkas.get('/');
-            const response2 = await Quokkas.get('/');
+            }
+            else if(categoriaSelecionada === "Quokkas"){
+              const response1 = await Quokkas.get('/');
+              const response2 = await Quokkas.get('/');
+
+              const data1 = response1.data;
+              const data2 = response2.data;
+      
+              setImageLinks([data1.image, data2.image]);
+            }
+            else if(categoriaSelecionada === "Cafe"){
+            const response1 = await Cafe.get('/');
+            const response2 = await Cafe.get('/');
 
             const data1 = response1.data;
             const data2 = response2.data;
     
-            setImageLinks([data1.image, data2.image]);
-        }
-        else if(categoriaSelecionada === "Cafe"){
-          const response1 = await Cafe.get('/');
-          const response2 = await Cafe.get('/');
-
-          const data1 = response1.data;
-          const data2 = response2.data;
-  
-          setImageLinks([data1.file, data2.file]);
-      }
-
+            setImageLinks([data1.file, data2.file]);
+            }
           } catch (error) {
             console.error('Erro ao buscar imagens:', error);
           }
         };
     
-        fetchImages();
-      }, [categoriaSelecionada]);
+      fetchImages();
+    }, [categoriaSelecionada]);
 
     return(
         <div>  
@@ -116,4 +112,4 @@ function Jogo(){
 
 }
 
-export default Jogo
+export default Game

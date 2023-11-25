@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile'
-import Jogo from './pages/Jogo'
+import Game from './pages/Game'
 import Forum from './pages/Forum'
 import Publicar from './pages/Publicar'
 import NotFound from './pages/NotFound'
@@ -25,8 +25,7 @@ function RoutesApp() {
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         <Route path="/categories" element={<PrivateRoute><Categories/></PrivateRoute>} />
-        <Route path="/jogo" element={<PrivateRoute><Jogo/></PrivateRoute>} />
-        <Route path="/challenge" element={<PrivateRoute><Jogo/></PrivateRoute>} />
+        <Route path="/game" element={<PrivateRoute><Game/></PrivateRoute>} />
         <Route path="/forum" element={<PrivateRoute><Forum/></PrivateRoute>} />
         <Route path="/publicar" element={<PrivateRoute><Publicar/></PrivateRoute>} />
         

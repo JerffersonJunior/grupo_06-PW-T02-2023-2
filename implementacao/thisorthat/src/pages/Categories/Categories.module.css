@@ -20,11 +20,10 @@
     height: 5vh;
     background: #2f015e;
     border-radius: 15px;
-    background-image: linear-gradient(to right, rgb(61, 16, 119), rgb(0, 110, 255), 
-    rgb(72, 60, 243),rgb(9, 0, 139));
+    background-image: url("../../images/degrade.png");
     border: 2px solid rgb(50, 1, 100);
     font-family: 'Jua', sans-serif;
-    color: rgb(144, 255, 246);
+    color: rgb(255, 255, 255);
     font-size: 100%;
     display: flex;
     align-items: center;
@@ -35,8 +34,7 @@
 .button:hover {
     cursor: pointer;
     opacity: 0.8;
-    background-image: linear-gradient(to right, rgb(61, 16, 119), rgb(0, 110, 255), 
-    rgb(72, 60, 243),rgb(9, 0, 139));
+    background-image: url("../../images/degrade.png");
     transform: scale(1.15);
 }
 

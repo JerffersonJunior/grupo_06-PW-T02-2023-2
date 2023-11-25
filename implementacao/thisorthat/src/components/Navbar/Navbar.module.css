@@ -13,9 +13,8 @@
 nav{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background-color: #3870ff;
-    padding-right: 40px;
     width: 100%;
     margin-right: 10%;
     border: 1px solid black;
@@ -26,7 +25,6 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .navbar li{
@@ -39,7 +37,7 @@ nav{
 
 .navbar li a{
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 200;
     color: rgb(0, 0, 0);
     transition: 0.3s ease-in-out;

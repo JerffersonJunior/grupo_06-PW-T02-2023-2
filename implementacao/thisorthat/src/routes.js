@@ -11,11 +11,7 @@ import Challenge from './pages/Challenge'
 import Forum from './pages/Forum'
 import Publish from './pages/Publish'
 import NotFound from './pages/NotFound'
-<<<<<<< HEAD
-
-=======
 import Ranking from "./pages/RankingImage"
->>>>>>> ca2ceb52bab2378950611a8b06f28459f03c0854
 import PrivateRoute from "./components/PrivateRouter"
 import Footer from "./components/Rodape"
 
@@ -33,13 +29,8 @@ function RoutesApp() {
         <Route path="/game" element={<PrivateRoute><Game/></PrivateRoute>} />
         <Route path="/challenge" element={<PrivateRoute><Challenge/></PrivateRoute>} />
         <Route path="/forum" element={<PrivateRoute><Forum/></PrivateRoute>} />
-<<<<<<< HEAD
         <Route path="/forum/publish" element={<PrivateRoute><Publish/></PrivateRoute>} />
-        
-=======
-        <Route path="/publicar" element={<PrivateRoute><Publicar/></PrivateRoute>} />
         <Route path="/ranking" element={<PrivateRoute><Ranking/></PrivateRoute>} />
->>>>>>> ca2ceb52bab2378950611a8b06f28459f03c0854
         <Route path="*" element={<PrivateRoute><NotFound/></PrivateRoute>} />
 
       </Routes>

@@ -18,9 +18,10 @@ class Navbar extends Component{
                         <ul className={`${styles.navbar} ${this.state.clicked ? styles.active : styles.navbar}`}>
                             <li><a href='/categories'>Categorias</a></li>
                             <li><a href='/challenge'>Desafios</a></li>
-                            <li><a href='/notfound'>Ranking</a></li>
+                            <li><a href='/ranking'>Ranking</a></li>
                             <li><a href='/forum'>Fórum</a></li>
                             <li><a href='/profile'>Conta</a></li>
+                            
                         </ul>
                     </div>
                     <div className={styles.mobile} onClick={this.handleClick}>

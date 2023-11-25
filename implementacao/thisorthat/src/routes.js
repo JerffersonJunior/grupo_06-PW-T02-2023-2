@@ -1,17 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Categories from "./pages/Categories"
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/Login"
+import Register from "./pages/Register"
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile'
 import Game from './pages/Game'
+import Challenge from './pages/Challenge'
 import Forum from './pages/Forum'
 import Publicar from './pages/Publicar'
 import NotFound from './pages/NotFound'
-
-import PrivateRoute from "./components/PrivateRouter";
+import Ranking from "./pages/RankingImage"
+import PrivateRoute from "./components/PrivateRouter"
 import Footer from "./components/Rodape"
 
 
@@ -26,9 +27,10 @@ function RoutesApp() {
         <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
         <Route path="/categories" element={<PrivateRoute><Categories/></PrivateRoute>} />
         <Route path="/game" element={<PrivateRoute><Game/></PrivateRoute>} />
+        <Route path="/challenge" element={<PrivateRoute><Challenge/></PrivateRoute>} />
         <Route path="/forum" element={<PrivateRoute><Forum/></PrivateRoute>} />
         <Route path="/publicar" element={<PrivateRoute><Publicar/></PrivateRoute>} />
-        
+        <Route path="/ranking" element={<PrivateRoute><Ranking/></PrivateRoute>} />
         <Route path="*" element={<PrivateRoute><NotFound/></PrivateRoute>} />
 
       </Routes>

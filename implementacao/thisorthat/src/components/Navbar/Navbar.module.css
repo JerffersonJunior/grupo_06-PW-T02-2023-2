@@ -13,7 +13,7 @@
 nav{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: #3870ff;
     padding-right: 40px;
     width: 100%;

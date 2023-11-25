@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"
 import Avatar from "../../images/avatar.png"
 import { upload } from "../../services/firebaseConfig"
 import { useEffect, useState } from "react"
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../services/firebaseConfig"
 
 import Navbar from "../../components/Navbar"
 import styles from "./Profile.module.css"
@@ -12,6 +14,8 @@ function Profile (){
     const { currentUser, logout } = useAuth()
     const [photo, setPhoto] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [username, setUsername] = useState('')
+    const usuarioRef = doc(db, 'usuarios', currentUser.uid)
     const history = useNavigate()
 
     async function handleLogOut(){
@@ -36,16 +40,22 @@ function Profile (){
     }
     
     useEffect(()=>{
+        const fetch = (async ()=>{
+            const docSnap = await getDoc(usuarioRef)
+            setUsername(docSnap.data().username)
+        })
         if(currentUser && currentUser.photoURL){
             setPhotoURL(currentUser.photoURL)
         }
-    },[currentUser])
+
+        fetch()
+    },[currentUser, usuarioRef])
 
     return(
         <div>
             <Navbar />
             <div className={styles.container}>
-                <string><h3>Usuário</h3></string>{currentUser.email}
+                <strong><h3>{username}</h3></strong>{currentUser.email}
                 <img  src={photoURL} alt="Avatar" className={styles.avatar} />
                 <div className={styles.inputContainer}>
                     <p>Trocar foto de perfil</p>

@@ -84,27 +84,16 @@ function Game() {
   return (
     <div>
       <Navbar />
+      <div><p className={styles.pergunta}>Qual você prefere?</p></div>
       <div className={styles.container}>
         <img
-          src={imageLinks[0]}
-          alt="Animal 1"
-          className={styles.card}
-          onClick={(e) => {
-            setImagemEscolhida(imageLinks[0]);
-          }}
-        />
-        <img
-          src={imageLinks[1]}
-          alt="Animal 2"
-          className={styles.card}
-          onClick={(e) => {
-            setImagemEscolhida(imageLinks[1]);
-          }}
-        />
+          src={imageLinks[0]} alt="Animal 1" className={styles.card} onClick={(e) => {setImagemEscolhida(imageLinks[0]);}}/>
+        <p className={styles.text}>OU</p>
+        <img src={imageLinks[1]} alt="Animal 2" className={styles.card} onClick={(e) => { setImagemEscolhida(imageLinks[1]);}}/>
       </div>
       <div className={styles.timer}>
-        <h1>{seconds}s</h1>
-        {timerExpired && <p>Tempo esgotado!</p>}
+        <h1>{seconds}</h1>
+        {timerExpired && <p className={styles.textTime}>TEMPO ESGOTADO!</p>}
       </div>
       <button className={styles.nextbutton} onClick={handleChoice}>
         Próximo

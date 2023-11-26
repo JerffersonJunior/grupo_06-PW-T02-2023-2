@@ -12,6 +12,10 @@
     margin-top: 10%;
 }
 
+.card:hover{
+    cursor: pointer;
+}
+
 .nextbutton {
     margin-top: 3%;
     width: 20vw;

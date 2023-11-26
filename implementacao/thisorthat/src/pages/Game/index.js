@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Gatos, Cachorros, Patos, Raposas, Quokkas, Cafe } from '../../services/api'
+import { Gatos, Cachorros, Raposas, Quokkas } from '../../services/api'
 import { useCategory } from '../../contexts/CategoryContext';
+import { collection, query, where, getDocs, addDoc, updateDoc, getDoc, setDoc, doc } from "firebase/firestore";
 import { db } from '../../services/firebaseConfig'
 
 import Navbar from "../../components/Navbar"
@@ -9,89 +10,124 @@ import styles from "./Game.module.css"
 function Game(){
   const [imagemEscolhida, setImagemEscolhida] = useState('')
   const { categoriaSelecionada } = useCategory()
-  const [imageLinks, setImageLinks] = useState([]);
-  
-  async function handleChoice(e){
-    e.preventDefault()
-    
+  const [imageLinks1, setImageLinks1] = useState();
+  const [imageLinks2, setImageLinks2] = useState();
 
-    window.location.reload(false)
+  function reiniciarPagina() {
+    window.location.reload();
+  }
+
+  const verificarID_gato = async (id) => {
+    const queryRef = doc(db, "imagem", id)
+    const querySnapshot = await getDoc(queryRef);
+    if (!querySnapshot.exists()) {
+      try{
+        await setDoc(queryRef, {
+          url: `https://cdn2.thecatapi.com/images/${id}.jpg`,
+          contagem: 0
+        })
+      } catch(error){
+        console.error("erro" + error)
+      }
+    }
+  };
+
+  const verificarID_cachorro = async (id) => {
+    const queryRef = doc(db, "imagem", id)
+    const querySnapshot = await getDoc(queryRef);
+    if (!querySnapshot.exists()) {
+      try{
+        await setDoc(queryRef, {
+          url: `https://cdn2.thedogapi.com/images/${id}.jpg`,
+          contagem: 0
+        })
+      } catch(error){
+        console.error("erro" + error)
+      }
+    }
+  };
+  
+  const buscarImagemGato = async () => {
+    try {
+      const response1 = await Gatos.get('/')
+      const response2 = await Gatos.get('/')
+
+      const imageUrl = response1.data[0].url
+      const imageUr2 = response2.data[0].url
+      
+      const id1 = response1.data[0].id
+      const id2 = response2.data[0].id
+
+      setImageLinks1(imageUrl)
+      setImageLinks2(imageUr2)
+
+      verificarID_gato(id1)
+      verificarID_gato(id2)
+
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+    }
+  };
+
+  const buscarImagemCachorro = async () => {
+    try{
+      const response1 = await Cachorros.get('/')
+      const response2 = await Cachorros.get('/')
+
+      const imageUrl = response1.data[0].url
+      const imageUr2 = response2.data[0].url
+      
+      const id1 = response1.data[0].id
+      const id2 = response2.data[0].id
+
+      setImageLinks1(imageUrl)
+      setImageLinks2(imageUr2)
+
+      verificarID_cachorro(id1)
+      verificarID_cachorro(id2)
+
+    } catch(error){
+
+    }
+  }
+
+  async function updateURLCount() {
+    const imagemRef = collection(db, "imagem");
+    const q = query(imagemRef, where("url", "==", `${imagemEscolhida}`));
+  
+    const querySnapshot = await getDocs(q);
+  
+    for (const doc of querySnapshot.docs) {
+      try {
+        const documento = await getDoc(doc.ref);
+        const contagem = documento.data().contagem;
+  
+        await updateDoc(doc.ref, { contagem: contagem + 1 });
+      } catch (error) {
+        console.error('Erro ao atualizar contagem:', error);
+      }
+    }
+    reiniciarPagina()
   }
 
   useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        if(categoriaSelecionada === "Gatos"){
-          const response1 = await Gatos.get('/');
-          const response2 = await Gatos.get('/');
-
-          const data1 = response1.data;
-          const data2 = response2.data;
-        
-          setImageLinks([data1[0].url, data2[0].url]);
-        }
-        else if(categoriaSelecionada === "Cachorros"){
-          const response1 = await Cachorros.get('/');
-          const response2 = await Cachorros.get('/');
-
-          const data1 = response1.data;
-          const data2 = response2.data;
-      
-          setImageLinks([data1.url, data2.url]);
-        }
-        else if(categoriaSelecionada === "Patos"){
-          const response1 = await Patos.get('/');
-          const response2 = await Patos.get('/');
-
-          const data1 = response1.data;
-          const data2 = response2.data;
-      
-          setImageLinks([data1.message, data2.message]);
-        }
-        else if(categoriaSelecionada === "Raposas"){
-          const response1 = await Raposas.get('/');
-          const response2 = await Raposas.get('/');
-
-          const data1 = response1.data;
-          const data2 = response2.data;
-      
-          setImageLinks([data1.image, data2.image]);
-        }
-        else if(categoriaSelecionada === "Quokkas"){
-          const response1 = await Quokkas.get('/');
-          const response2 = await Quokkas.get('/');
-
-          const data1 = response1.data;
-          const data2 = response2.data;
-      
-          setImageLinks([data1.image, data2.image]);
-        }
-        else if(categoriaSelecionada === "Cafe"){
-          const response1 = await Cafe.get('/');
-          const response2 = await Cafe.get('/');
-
-          const data1 = response1.data;
-          const data2 = response2.data;
-    
-          setImageLinks([data1.file, data2.file]);
-        }
-      } catch (error) {
-        console.error('Erro ao buscar imagens:', error);
-      }
-    };
-    
-    fetchImages();
-  }, [categoriaSelecionada]);
+    if(categoriaSelecionada === "Gatos"){
+      buscarImagemGato();
+    }
+    else if(categoriaSelecionada === "Cachorros"){
+      buscarImagemCachorro();
+    }
+  }, [])
 
   return(
     <div>  
       <Navbar />      
         <div className={styles.container}>
-          <img src={imageLinks[0]} alt="Animal 1" className={styles.card} onClick={(e)=>{setImagemEscolhida(imageLinks[0])}}/>
-          <img src={imageLinks[1]} alt="Animal 2" className={styles.card} onClick={(e)=>{setImagemEscolhida(imageLinks[1])}}/>
+            <img src={imageLinks1} alt="Animal 1" className={styles.card} onClick={()=>{setImagemEscolhida(imageLinks1)}}/>
+            <img src={imageLinks2} alt="Animal 2" className={styles.card} onClick={()=>{setImagemEscolhida(imageLinks2)}}/>
         </div>
-           <button className={styles.nextbutton} onClick={handleChoice}>Próximo</button>
-        </div>      
+        <button className={styles.nextbutton} onClick={(updateURLCount)}>Próximo</button>
+    </div>      
   )
 }
 

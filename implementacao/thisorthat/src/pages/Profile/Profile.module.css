@@ -36,7 +36,7 @@
   
 .button {
     width: 10vw;
-    height: 5vh;
+    height: 5vw;
     background: #2ED12B;
     border-radius: 12px;
     box-shadow: 3px 3px 3px #129410;
@@ -59,7 +59,7 @@
 
 .button_logout {
     margin-top: 5%;
-    width: 5vw;
+    width: 7vw;
     height: 9vh;
     background: #db1818;
     border-radius: 12px;

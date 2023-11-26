@@ -86,7 +86,7 @@ function Game(){
   return(
     <div>  
       <Navbar />      
-      <div><p className={styles.pergunta}>Qual você prefere?</p></div>
+      <div><p className={styles.quest}>Qual você prefere?</p></div>
         <div className={styles.container}>
           <img src={imageLinks[0]} alt="Animal 1" className={styles.card} onClick={(e)=>{setImagemEscolhida(imageLinks[0])}}/>
           <p className={styles.text}>OU</p>

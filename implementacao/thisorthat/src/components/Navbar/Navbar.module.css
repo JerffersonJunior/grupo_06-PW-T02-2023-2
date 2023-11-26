@@ -36,7 +36,7 @@ nav{
 
 .navbar li a{
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 200;
     color: rgb(0, 0, 0);
     transition: 0.3s ease-in-out;
@@ -44,12 +44,13 @@ nav{
     background-color: #9ABCFF;
     border: 1px solid black;
     border-radius: 8px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .navbar li a:hover{
     color:rgb(255, 255, 255);
     background-color: #460096;
+    opacity: 0.8;
 }
 
 .mobile{

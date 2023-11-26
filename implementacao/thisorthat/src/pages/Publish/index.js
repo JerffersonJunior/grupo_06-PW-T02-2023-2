@@ -7,7 +7,11 @@ return(
   <div>
       <Navbar />
       <div className>
-          
+          <form action="/forum">
+            <label className={styles.labelcoment} for="Comentario">Publicação do Fórum</label>
+            <input className={styles.inputcoment} type="text" id="Comentario" name="Comentario" placeholder="Comentar"/>
+            <button className={styles.nextbutton}>Enviar</button>
+        </form>
       </div>
   </div>
 )

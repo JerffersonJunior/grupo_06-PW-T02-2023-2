@@ -29,14 +29,17 @@ function Ranking(){
   return(
     <div>
       <Navbar/>
+      <p className={styles.rank}>Rank de Escolhas</p>
       {imagens.map((imagem)=>{
         return(
-          <div className={styles.container}>
-              <img src={imagem.url} alt="Foto da imagem" className={styles.card}/>
+          <table className={styles.ranktable}>
+            <div className={styles.container}>
+              <img src={imagem.url} alt="Foto da imagem" className={styles.cardRank}/>
                   <div>
-                    <h1>{imagem.contagem}</h1>
+                    <th><h1 className={styles.contagem}>{imagem.contagem}</h1></th>
                   </div>
-            </div>
+            </div>    
+        </table>
         )
       })}
     </div>

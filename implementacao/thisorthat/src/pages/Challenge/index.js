@@ -31,18 +31,6 @@ function Game() {
           const data1 = response1.data;
           const data2 = response2.data;
           setImageLinks([data1.url, data2.url]);
-        } else if (categoriaSelecionada === 'Raposas') {
-          const response1 = await Raposas.get('/');
-          const response2 = await Raposas.get('/');
-          const data1 = response1.data;
-          const data2 = response2.data;
-          setImageLinks([data1.image, data2.image]);
-        } else if (categoriaSelecionada === 'Quokkas') {
-          const response1 = await Quokkas.get('/');
-          const response2 = await Quokkas.get('/');
-          const data1 = response1.data;
-          const data2 = response2.data;
-          setImageLinks([data1.image, data2.image]);
         }
       } catch (error) {
         console.error('Erro ao buscar imagens:', error);

@@ -63,4 +63,5 @@ Padronização de Commits adotada:
 - **feat**: adição de nova funcionalidade;
 - **update**: atualização em funcionalidade já existente;
 - **typo**: alteração ortográfica ou gramatical;
+- **fix**: correção em trechos de código;
 - **conflict**: solução para ocorrência de conflitos de merge.

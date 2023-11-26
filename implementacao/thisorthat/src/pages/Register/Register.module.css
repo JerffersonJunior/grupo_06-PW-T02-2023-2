@@ -37,7 +37,8 @@ label {
     font-size: 100%;
     line-height: 20px;
     margin-bottom: 2%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Jua', sans-serif;
+    font-size: 30px;
 }
   
 .button {

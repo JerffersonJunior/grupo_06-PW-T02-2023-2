@@ -59,7 +59,7 @@ function Profile (){
                 <img  src={photoURL} alt="Avatar" className={styles.avatar} />
                 <div className={styles.inputContainer}>
                     <p>Alterar foto de perfil</p>
-                    <label for='selecao-arquivo'>Selecionar um arquivo &#187;</label>
+                    <label for='selecao-arquivo' className={styles.labelarquivo} >Selecionar um arquivo &#187;</label>
                     <input id = 'selecao-arquivo' className={styles.input_form} type="file" onChange={handleChange}/>
                     <button className={styles.button} disabled={loading || !photo} onClick={handleClick}>Upload</button>
                     <button className={styles.button_logout} onClick={handleLogOut}>LogOut</button>

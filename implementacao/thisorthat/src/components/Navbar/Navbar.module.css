@@ -2,22 +2,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
 .foto{
-    width: 7vw;
+    width: 6vw;
     display: block;
-    margin-left: 10%;
 }
 
 nav{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #3870ff;
-    padding-right: 40px;
     width: 100%;
-    margin-right: 10%;
     border: 1px solid black;
     padding: 3%;
 }
@@ -26,7 +25,6 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .navbar li{
@@ -34,12 +32,11 @@ nav{
     padding-left: 50px;
     padding-right: 50px;
     position: relative;
-    
 }
 
 .navbar li a{
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 200;
     color: rgb(0, 0, 0);
     transition: 0.3s ease-in-out;
@@ -52,6 +49,7 @@ nav{
 
 .navbar li a:hover{
     color:rgb(255, 255, 255);
+    background-color: #460096;
 }
 
 .mobile{
@@ -62,7 +60,7 @@ nav{
     color: rgb(255, 255, 255);
 }
 
-@media screen and (max-width:769px) {
+@media screen and (max-width:1200px) {
     .navbar{
         display: flex;
         flex-direction: column;

@@ -13,7 +13,7 @@ function Forum(){
     const history = useNavigate()
 
     function telaPublicar(){
-        history('/forum/publicar')
+        history('/forum/publish')
     }
 
     useEffect(()=>{

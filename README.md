@@ -45,3 +45,22 @@ Frameworks utilizados:
 - **React.**
 
 APIs utilizadas:
+
+- **Gatos** = https://api.thecatapi.com/v1/images/search
+
+- **Cachorros** = https://random.dog/woof.json
+
+- **Patos** = https://random-d.uk/api/random
+  
+- **Raposas** = https://randomfox.ca/floof/
+
+- **Quokkas** = https://quokka.pics/api/
+
+- **Cafe** = https://coffee.alexflipnote.dev/random.json
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Padronização de Commits adotada:
+
+- **feat**: adição de nova funcionalidade;
+- **update**: atualização em funcionalidade já existente;
+- **typo**: alteração ortográfica ou gramatical;
+- **conflict**: solução para ocorrência de conflitos de merge.

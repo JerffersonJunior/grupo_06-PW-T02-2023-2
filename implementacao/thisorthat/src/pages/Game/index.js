@@ -122,9 +122,11 @@ function Game(){
   return(
     <div>  
       <Navbar />      
+      <div><p className={styles.pergunta}>Qual você prefere?</p></div>
         <div className={styles.container}>
-            <img src={imageLinks1} alt="Animal 1" className={styles.card} onClick={()=>{setImagemEscolhida(imageLinks1)}}/>
-            <img src={imageLinks2} alt="Animal 2" className={styles.card} onClick={()=>{setImagemEscolhida(imageLinks2)}}/>
+          <img src={imageLinks1} alt="Animal 1" className={styles.card} onClick={(e)=>{setImagemEscolhida(imageLinks1)}}/>
+          <p className={styles.text}>OU</p>
+          <img src={imageLinks2} alt="Animal 2" className={styles.card} onClick={(e)=>{setImagemEscolhida(imageLinks2)}}/>
         </div>
         <button className={styles.nextbutton} onClick={(updateURLCount)}>Próximo</button>
     </div>      

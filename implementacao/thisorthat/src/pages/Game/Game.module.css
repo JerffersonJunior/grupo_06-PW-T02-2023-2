@@ -16,6 +16,10 @@
     transform: scale(1.15);
 }
 
+.card:hover{
+    cursor: pointer;
+}
+
 .nextbutton {
     margin-top: 3%;
     width: 20vw;

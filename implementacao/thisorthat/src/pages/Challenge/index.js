@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Gatos, Cachorros, Patos, Raposas, Quokkas, Cafe } from '../../services/api';
+import { Gatos, Cachorros, Raposas, Quokkas } from '../../services/api';
 import { useCategory } from '../../contexts/CategoryContext';
 import Navbar from '../../components/Navbar';
 import styles from './Challenge.module.css';
@@ -31,12 +31,6 @@ function Game() {
           const data1 = response1.data;
           const data2 = response2.data;
           setImageLinks([data1.url, data2.url]);
-        } else if (categoriaSelecionada === 'Patos') {
-          const response1 = await Patos.get('/');
-          const response2 = await Patos.get('/');
-          const data1 = response1.data;
-          const data2 = response2.data;
-          setImageLinks([data1.message, data2.message]);
         } else if (categoriaSelecionada === 'Raposas') {
           const response1 = await Raposas.get('/');
           const response2 = await Raposas.get('/');
@@ -49,12 +43,6 @@ function Game() {
           const data1 = response1.data;
           const data2 = response2.data;
           setImageLinks([data1.image, data2.image]);
-        } else if (categoriaSelecionada === 'Cafe') {
-          const response1 = await Cafe.get('/');
-          const response2 = await Cafe.get('/');
-          const data1 = response1.data;
-          const data2 = response2.data;
-          setImageLinks([data1.file, data2.file]);
         }
       } catch (error) {
         console.error('Erro ao buscar imagens:', error);

@@ -5,12 +5,9 @@ const Gatos = axios.create({
 })
 
 const Cachorros = axios.create({
-    baseURL: "https://random.dog/woof.json"
+    baseURL: "https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=1"
 })
 
-const Patos = axios.create({
-    baseURL: "https://random-d.uk/api/random"
-})
 const Raposas = axios.create({
     baseURL: "https://randomfox.ca/floof/"
 })
@@ -18,9 +15,5 @@ const Raposas = axios.create({
 const Quokkas = axios.create({
     baseURL: "https://quokka.pics/api/"
 })
-const Cafe = axios.create({
-    baseURL: "https://coffee.alexflipnote.dev/random.json"
-})
 
-export {Gatos, Cachorros, Patos, Raposas, Quokkas, Cafe}
-
+export {Gatos, Cachorros, Raposas, Quokkas}

@@ -28,7 +28,6 @@ function Categories(){
                 </div>
             </div>
             <div className={styles.container}>
-                <img className={styles.tooltip} src="https://img.elo7.com.br/feedback/attachments/15DCFB4/240x240/adesivo-quadrado-mario-bross-decoracao-lembrancinhas-personalizadas-lembrancinhas-1.jpg" alt='Tooltip'/> 
                 <div className={styles.container_opcao}>
                     <button className={styles.button} onClick={(e)=>setCategoriaSelecionada("Gatos")}>Gatos</button>
                     <button className={styles.button} onClick={(e)=>setCategoriaSelecionada("Cachorros")}>Cachorros</button>

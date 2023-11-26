@@ -1,29 +1,28 @@
-import React, { useState, useEffect } from 'react'
-import { Gatos, Cachorros } from '../../services/api'
+import React, { useState, useEffect } from 'react';
+import { Gatos, Cachorros } from '../../services/api';
 import { useCategory } from '../../contexts/CategoryContext';
-import { collection, getDocs, updateDoc, getDoc, doc } from "firebase/firestore";
+import { collection, query, where, getDocs, addDoc, updateDoc, getDoc, setDoc, doc } from "firebase/firestore";
 import { db } from '../../services/firebaseConfig';
+
 import Navbar from "../../components/Navbar";
 import styles from "./Game.module.css";
 
 function Game() {
   const [imagemEscolhida, setImagemEscolhida] = useState('');
   const { categoriaSelecionada } = useCategory();
-  const [imageLinks1, setImageLinks1] = useState('');
-  const [imageLinks2, setImageLinks2] = useState('');
-  const [percentage1, setPercentage1] = useState(0);
-  const [percentage2, setPercentage2] = useState(0);
+  const [imageLinks1, setImageLinks1] = useState();
+  const [imageLinks2, setImageLinks2] = useState();
 
   function reiniciarPagina() {
     window.location.reload();
   }
 
-  const verificarID = async (id) => {
+  const verificarID_gato = async (id) => {
     const queryRef = doc(db, "imagem", id);
     const querySnapshot = await getDoc(queryRef);
     if (!querySnapshot.exists()) {
       try {
-        await updateDoc(queryRef, {
+        await setDoc(queryRef, {
           url: `https://cdn2.thecatapi.com/images/${id}.jpg`,
           contagem: 0
         });
@@ -33,111 +32,102 @@ function Game() {
     }
   };
 
-  const buscarImagem = async () => {
+  const verificarID_cachorro = async (id) => {
+    const queryRef = doc(db, "imagem", id);
+    const querySnapshot = await getDoc(queryRef);
+    if (!querySnapshot.exists()) {
+      try {
+        await setDoc(queryRef, {
+          url: `https://cdn2.thedogapi.com/images/${id}.jpg`,
+          contagem: 0
+        });
+      } catch (error) {
+        console.error("erro" + error);
+      }
+    }
+  };
+
+  const buscarImagemGato = async () => {
     try {
-      const response1 = await fetch('https://api.thecatapi.com/v1/images/search');
-      const response2 = await fetch('https://api.thecatapi.com/v1/images/search');
+      const response1 = await Gatos.get('/');
+      const response2 = await Gatos.get('/');
 
-      const data1 = await response1.json();
-      const data2 = await response2.json();
+      const imageUrl = response1.data[0].url;
+      const imageUr2 = response2.data[0].url;
 
-      const imageUrl1 = data1[0].url;
-      const imageUrl2 = data2[0].url;
+      const id1 = response1.data[0].id;
+      const id2 = response2.data[0].id;
 
-      setImageLinks1(imageUrl1);
-      setImageLinks2(imageUrl2);
+      setImageLinks1(imageUrl);
+      setImageLinks2(imageUr2);
 
-      const id1 = imageUrl1.split('/').pop();
-      const id2 = imageUrl2.split('/').pop();
-
-      verificarID(id1);
-      verificarID(id2);
-
-      const doc1 = await getDoc(doc(db, "imagem", id1));
-      const doc2 = await getDoc(doc(db, "imagem", id2));
-
-      const contagem1 = doc1.data().contagem;
-      const contagem2 = doc2.data().contagem;
-
-      const totalContagem = contagem1 + contagem2;
-
-      setPercentage1((contagem1 / totalContagem) * 100);
-      setPercentage2((contagem2 / totalContagem) * 100);
+      verificarID_gato(id1);
+      verificarID_gato(id2);
 
     } catch (error) {
       console.error('Erro na requisição:', error);
     }
   };
 
-  async function updateURLCount(id) {
+  const buscarImagemCachorro = async () => {
     try {
-      const imagemRef = doc(db, "imagem", id);
-      const querySnapshot = await getDoc(imagemRef);
-  
-      if (querySnapshot.exists()) {
-        const contagem = querySnapshot.data().contagem || 0;
-  
-        await updateDoc(imagemRef, { contagem: contagem + 1 });
-      } else {
-        // Handle the case where the document does not exist
-        console.error("Document does not exist for id:", id);
-      }
+      const response1 = await Cachorros.get('/');
+      const response2 = await Cachorros.get('/');
+
+      const imageUrl = response1.data[0].url;
+      const imageUr2 = response2.data[0].url;
+
+      const id1 = response1.data[0].id;
+      const id2 = response2.data[0].id;
+
+      setImageLinks1(imageUrl);
+      setImageLinks2(imageUr2);
+
+      verificarID_cachorro(id1);
+      verificarID_cachorro(id2);
+
     } catch (error) {
-      console.error('Erro ao atualizar contagem:', error);
+
     }
+  }
+
+  async function updateURLCount() {
+    const imagemRef = collection(db, "imagem");
+    const q = query(imagemRef, where("url", "==", `${imagemEscolhida}`));
+
+    const querySnapshot = await getDocs(q);
+
+    for (const doc of querySnapshot.docs) {
+      try {
+        const documento = await getDoc(doc.ref);
+        const contagem = documento.data().contagem;
+
+        await updateDoc(doc.ref, { contagem: contagem + 1 });
+      } catch (error) {
+        console.error('Erro ao atualizar contagem:', error);
+      }
+    }
+    reiniciarPagina();
   }
 
   useEffect(() => {
     if (categoriaSelecionada === "Gatos") {
-      buscarImagem();
+      buscarImagemGato();
     } else if (categoriaSelecionada === "Cachorros") {
-      // Implement fetching dog images if needed
+      buscarImagemCachorro();
     }
-  }, [categoriaSelecionada]);
-
-  const handleImageClick = (selectedImage) => {
-    setImagemEscolhida(selectedImage);
-    updateURLCount(selectedImage.split('/').pop());
-  };
+  }, [])
 
   return (
     <div>
       <Navbar />
-      <div>
-        <p className={styles.quest}>Qual você prefere?</p>
-      </div>
+      <div><p className={styles.quest}>Qual você prefere?</p></div>
       <div className={styles.container}>
-        <div style={{ position: 'relative', textAlign: 'center' }}>
-          <img
-            src={imageLinks1}
-            alt="Animal 1"
-            className={styles.card}
-            onClick={() => handleImageClick(imageLinks1)}
-          />
-          {imagemEscolhida === imageLinks1 && (
-            <p className={styles.percentage}>
-              {percentage1.toFixed(2)}%
-            </p>
-          )}
-        </div>
+        <img src={imageLinks1} alt="Animal 1" className={styles.card} onClick={(e) => { setImagemEscolhida(imageLinks1) }} />
         <p className={styles.text}>OU</p>
-        <div style={{ position: 'relative', textAlign: 'center' }}>
-          <img
-            src={imageLinks2}
-            alt="Animal 2"
-            className={styles.card}
-            onClick={() => handleImageClick(imageLinks2)}
-          />
-          {imagemEscolhida === imageLinks2 && (
-            <p className={styles.percentage}>
-              {percentage2.toFixed(2)}%
-            </p>
-          )}
-        </div>
+        <img src={imageLinks2} alt="Animal 2" className={styles.card} onClick={(e) => { setImagemEscolhida(imageLinks2) }} />
       </div>
-      <button className={styles.nextbutton} onClick={() => { reiniciarPagina() }}>
-        Próximo
-      </button>
+      <button className={styles.nextbutton} onClick={updateURLCount}>Próximo</button>
     </div>
   );
 }

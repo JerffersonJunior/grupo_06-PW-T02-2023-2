@@ -20,6 +20,13 @@ function Categories(){
     return(
         <div>
             <Navbar />
+            <div className={styles.container_title}>
+                <p className={styles.quest}>Categorias</p>
+                <div className={styles.help}>
+                    ?
+                    <div className={styles.helptext}>Categorias utilizadas para a exibição de opções</div>
+                </div>
+            </div>
             <div className={styles.container}>
                 <div className={styles.container_opcao}>
                     <button className={styles.button} onClick={(e)=>setCategoriaSelecionada("Gatos")}>Gatos</button>

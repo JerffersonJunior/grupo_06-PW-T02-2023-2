@@ -4,8 +4,7 @@ import styles from './NotFound.module.css';
 const NotFound = () => {
  return (
   <div className={styles.notFound}>
-    <h1 >404</h1>
-    <p>Página não encontrada</p>
+    <a href='/categories'><button className={styles.voltar}>Voltar</button></a>
   </div>
  );
 };

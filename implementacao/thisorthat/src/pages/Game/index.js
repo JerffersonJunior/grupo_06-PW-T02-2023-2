@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Gatos, Cachorros, Raposas, Quokkas } from '../../services/api'
+import { Gatos, Cachorros } from '../../services/api'
 import { useCategory } from '../../contexts/CategoryContext';
 import { collection, query, where, getDocs, addDoc, updateDoc, getDoc, setDoc, doc } from "firebase/firestore";
 import { db } from '../../services/firebaseConfig'
